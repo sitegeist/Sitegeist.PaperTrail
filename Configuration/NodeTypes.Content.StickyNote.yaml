@@ -1,0 +1,52 @@
+Sitegeist.PaperTrail:Content.StickyNote:
+  ui:
+    label: 'Sticky Note'
+    icon: sticky-note
+    inspector:
+      groups:
+        stickyNote:
+          label: 'sticky note'
+          tab: default
+          icon: sticky-note
+
+  superTypes:
+    'Neos.Neos:Content': true
+  properties:
+    text:
+      type: string
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Enter note here...'
+            autoparagraph: false
+            formatting:
+              strong: true
+              em: true
+              u: true
+              del: true
+              underline: true
+              strikethrough: true
+              removeFormat: true
+              a: true
+    color:
+      type: string
+      defaultValue: 'yellow'
+      ui:
+        label: 'Color'
+        reloadIfChanged: true
+        inspector:
+          group: stickyNote
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              'yellow':
+                label: 'yellow'
+              'green':
+                label: 'green'
+              'orange' :
+                label: 'orange'
+              'pink' :
+                label: 'pink'
+              'blue' :
+                label: 'blue'

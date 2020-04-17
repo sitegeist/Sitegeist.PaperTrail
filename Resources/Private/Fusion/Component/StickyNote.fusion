@@ -1,0 +1,60 @@
+prototype(Sitegeist.PaperTrail:Component.StickyNote) < prototype(Neos.Fusion:Component) {
+
+    identifier = ${node.identifier}
+    text = ''
+    color = 'yellow'
+
+
+    renderer = Neos.Fusion:Component {
+        @apply.props = ${props}
+
+        hexColor = Neos.Fusion:Case {
+            yellow {
+                condition = ${props.color == 'yellow'}
+                renderer = '#f9d10c'
+            }
+
+            green {
+                condition = ${props.color == 'green'}
+                renderer = '#d5e252'
+            }
+
+            orange {
+                condition = ${props.color == 'orange'}
+                renderer = '#fd9c45'
+            }
+
+            pink {
+                condition = ${props.color == 'pink'}
+                renderer = '#f05ea3'
+            }
+
+            blue {
+                condition = ${props.color == 'blue'}
+                renderer = '#579cf4'
+            }
+
+            default {
+                condition = true
+                renderer=  '#f9d10c'
+            }
+        }
+
+        css = ${'
+            #note-' + props.identifier + ' {
+               transform: rotate(-2.5deg);
+               box-shadow: 0 0 10px rgba(0,0,0,.5);
+               margin: 2em 0;
+               padding: 2em;
+               background: ' + this.hexColor + ';
+               min-height: 5em;`
+               color: black;
+            }
+        '}
+
+        renderer = afx`
+            <style>{props.css}</style>
+            <div id={'note-' + props.identifier}>{props.text}</div>
+        `
+    }
+}

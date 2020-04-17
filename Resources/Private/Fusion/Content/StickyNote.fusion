@@ -1,0 +1,16 @@
+prototype(Sitegeist.PaperTrail:Content.StickyNote) < prototype(Neos.Neos:ContentComponent) {
+
+    renderer = Sitegeist.PaperTrail:Component.StickyNote {
+        # ensure this is only visible in the backend
+        @if.show = ${node.context.inBackend && node.context.currentRenderingMode.edit}
+
+        identifier = ${node.identifier}
+
+        text = Neos.Neos:Editable {
+            property = 'text'
+            block = false
+        }
+
+        color = ${q(node).property('color')}
+    }
+}
