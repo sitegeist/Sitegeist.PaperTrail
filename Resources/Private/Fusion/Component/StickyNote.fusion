@@ -1,6 +1,6 @@
 prototype(Sitegeist.PaperTrail:Component.StickyNote) < prototype(Neos.Fusion:Component) {
 
-    identifier = ${node.identifier}
+    identifier = ''
     text = ''
     color = 'yellow'
 
