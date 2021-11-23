@@ -47,7 +47,7 @@ prototype(Sitegeist.PaperTrail:Component.StickyNote) < prototype(Neos.Fusion:Com
                margin: 2em 0;
                padding: 2em;
                background: ' + this.hexColor + ';
-               min-height: 5em;`
+               min-height: 5em;
                color: black;
             }
         '}
